@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  box-sizing: border-box;
+  font-family:none;
+  line-height: 1;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background: #f1f1f1;
+}
+
+.heading {
+  @apply text-3xl mx-auto mb-1;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
+.btn-gray {
+  @apply bg-gray-500 text-white;
+}
+.btn-gray:hover {
+  @apply bg-gray-700;
+}
+.btn-green {
+  @apply bg-green-500 max-w-fit text-white;
+}
+.btn-green:hover {
+  @apply bg-green-700;
+}
+.btn-red {
+  @apply bg-red-500 max-w-fit text-white;
+}
+.btn-red:hover {
+  @apply bg-red-700;
+}
+
+.card{
+  @apply max-w-max m-3 p-6 bg-white border border-gray-200 rounded-lg shadow;
+}
+.contact-card{
+  @apply w-36 m-3 p-6 bg-white border border-gray-200 rounded-lg shadow;
+}
+.card-item{
+  @apply max-w-max mb-3 mx-auto;
+}
+
+.input{
+  @apply my-2 p-2 max-w-max border border-blue-200 rounded;
+}
+
+.navlink {
+  @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium;
+}
+
+.active {
+  @apply bg-blue-100 text-blue-600;
+}
