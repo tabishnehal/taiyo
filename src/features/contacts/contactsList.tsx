@@ -1,6 +1,10 @@
+// react
 import React from 'react'
+// react-redux
 import { useSelector } from 'react-redux'
+// react-router-dom
 import { Link } from 'react-router-dom'
+// feature file
 import { selectAllContacts } from './contactsSlice';
 
 export default function ContactsList() {

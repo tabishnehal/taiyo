@@ -1,6 +1,10 @@
+// react
 import React from "react";
+// react-redux
 import { useSelector } from "react-redux";
+// react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
+// feature file
 import { selectContactById } from "./contactsSlice";
 
 export default function ViewContact() {

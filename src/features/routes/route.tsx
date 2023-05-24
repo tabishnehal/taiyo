@@ -1,5 +1,8 @@
+// react
 import React from "react";
+// react-router-dom
 import { createBrowserRouter } from "react-router-dom";
+// App files
 import App from "../../App";
 import ErrorPage from "../../error-page";
 import ChartMap from "../chart-map/chart-map";

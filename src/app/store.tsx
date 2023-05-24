@@ -1,10 +1,12 @@
+// reduxjs/toolkit
 import { configureStore } from '@reduxjs/toolkit'
-
-import contactsReducer from '../features/contacts/contactsSlice'
+// redux-persist
 import storage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from 'redux-persist'
+// redux-thunk
 import thunk from 'redux-thunk'
-
+// app files
+import contactsReducer from '../features/contacts/contactsSlice'
 
 const persistConfig = {
   key: 'root',

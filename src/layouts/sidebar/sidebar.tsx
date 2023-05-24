@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+// react
 import React, { useEffect, useState } from "react";
+// react-router-dom
 import { NavLink, useLocation } from "react-router-dom";
-
+// framer-motion
+import { motion } from "framer-motion";
 // React icons
 import { IoIosArrowBack } from "react-icons/io";
 import { AiFillContacts, AiOutlineLineChart } from "react-icons/ai";
@@ -72,11 +74,11 @@ export default function Sidebar() {
         initial={{ x: isTabletMid ? -250 : 0 }}
         animate={open ? "open" : "closed"}
         className=" bg-white text-gray shadow-xl z-[999] max-w-[16rem]  w-[16rem] 
-            overflow-hidden md:relative fixed
+            overflow-hidden md:relative md:sticky md:top-0 fixed
          h-screen "
       >
 
-        <div className="flex flex-col  h-full">
+        <div className="flex flex-col h-full">
           <ul className="whitespace-pre px-2.5 text-[0.9rem] py-5 flex flex-col gap-1  font-medium overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100   md:h-[68%] h-[70%]">
             <li>
               <NavLink to={"contacts/"} className={`navlink ${pathname.includes("contacts") && "bg-blue-100 text-blue-600"}`}>

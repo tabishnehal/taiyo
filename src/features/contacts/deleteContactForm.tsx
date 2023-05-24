@@ -1,8 +1,13 @@
+// react
 import React from "react";
+// react-redux
 import { useDispatch, useSelector } from "react-redux";
+// react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
-import { contactDeleted, selectContactById } from "./contactsSlice";
+// react-custom-alert
 import { toast } from "react-custom-alert";
+// feature file
+import { contactDeleted, selectContactById } from "./contactsSlice";
 
 export default function DeleteContactForm() {
 

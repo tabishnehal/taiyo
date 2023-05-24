@@ -1,9 +1,15 @@
+// react
 import React, { useState } from "react";
+// react-redux
 import { useDispatch } from "react-redux";
-import { contactAdded } from "./contactsSlice";
+// reduxjs/toolkit
 import { nanoid } from "@reduxjs/toolkit";
+// react-router-dom
 import { useNavigate } from "react-router-dom";
+// react-custom-alert
 import { toast } from 'react-custom-alert';
+// feature file
+import { contactAdded } from "./contactsSlice";
 
 export default function CreateContactForm() {
 
@@ -63,7 +69,6 @@ export default function CreateContactForm() {
             </div>
             <button type="button" className="btn btn-green" onClick={onSaveContactClicked}>Save Contact</button>
           </div>
-
         </form>
       </div>
     </div>
