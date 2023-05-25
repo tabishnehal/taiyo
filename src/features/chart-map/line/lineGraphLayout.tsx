@@ -17,8 +17,12 @@ const LineGraphLayout = () => {
       .then((response) => response.json())
   });
 
-  if (isLoading)
-    return <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+  if (isLoading) {
+    return <div>
+      <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+      <p className="text-center">Loading Graph Layout...</p>
+    </div>
+  }
   if (isError)
     return <span className='text-red-400'>{(error as any).message ? (error as any).message : error}</span>
 

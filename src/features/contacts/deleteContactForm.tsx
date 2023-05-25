@@ -13,7 +13,7 @@ export default function DeleteContactForm() {
 
   const { contactId } = useParams();
 
-  const contact = useSelector((state: any) => selectContactById(state, contactId)) || { id: contactId, firstName: "" };
+  const contact = useSelector((state: any) => selectContactById(state, contactId)) || { firstName: "" };
 
   const { firstName } = contact;
 
@@ -32,7 +32,7 @@ export default function DeleteContactForm() {
       setTimeout(() => {
         navigate(`delete/${contactId}`, { replace: true });
         navigate(`contacts/`);
-      }, 500);
+      }, 5);
     }
   }
 
@@ -41,7 +41,19 @@ export default function DeleteContactForm() {
     setTimeout(() => {
       navigate(`delete/${contactId}`, { replace: true });
       navigate(`contacts/view/${contactId}`);
-    }, 500);
+    }, 5);
+  }
+
+  const contacts = () => {
+    navigate(`delete/${contactId}`, { replace: true });
+    navigate(`contacts/`);
+  }
+
+  if (firstName === "") {
+    return <div className="card">
+      <p>Contact does not exist! It might have been deleted</p>
+      Go to<button className="btn btn-green m-2" onClick={contacts}>Contact List</button>
+    </div>
   }
 
   return (

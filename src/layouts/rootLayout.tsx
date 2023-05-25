@@ -14,7 +14,7 @@ export default function RootLayout() {
       <main className="max-w-5xl flex-1 mx-auto py-4">
         <Outlet />
       </main>
-      <ToastContainer floatingTime={100} />
+      <ToastContainer floatingTime={1000} />
     </div>
   );
 }

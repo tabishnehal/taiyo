@@ -28,8 +28,12 @@ const Map = () => {
       ).json()
   });
 
-  if (isLoading)
-    return <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+  if (isLoading) {
+    return <div>
+      <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+      <p className="text-center">Loading World Map...</p>
+    </div>
+  }
   if (isError)
     return <span className='text-red'>{(error as any).message ? (error as any).message : error}</span>
 
@@ -37,7 +41,7 @@ const Map = () => {
     <div className="mb-4">
       <MapContainer center={[0, 0]}
         zoom={2}
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
       >
         <TileLayer
           attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'

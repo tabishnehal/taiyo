@@ -1,5 +1,5 @@
 // react
-import React, { } from "react";
+import React from "react";
 // numeral
 import numeral from "numeral";
 // react-chartjs
@@ -72,17 +72,22 @@ const buildChartData = (data: any) => {
   return chartData;
 }
 
-export function LineGraph({ casesType, casesTypeData }: { casesType: string, casesTypeData: {} }) {
+export function LineGraph({ casesType, casesTypeData }: { casesType: string, casesTypeData: any }) {
 
   const { isLoading, isError, data, error } = useQuery({
-    queryKey: ['covidDailyCasesTypeData'],
-    queryFn: async () => await buildChartData(casesTypeData)
+    queryKey: ['covidDailyData', casesType],
+    queryFn: async () => buildChartData(casesTypeData)
   });
 
-  if (isLoading)
-    return <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+  if (isLoading) {
+    return <div>
+      <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+      <p className="text-center">Loading {casesType.charAt(0).toUpperCase() + casesType.slice(1)} Chart...</p>
+    </div>
+  }
+
   if (isError)
-    return <span className='text-red-400'>{(error as any).message ? (error as any).message : error}</span>
+    return <span className='text-red-400 text-center'>{(error as any).message ? (error as any).message : error}</span>
 
   return (
     <div className="cardLine md:flex md:flex-col">

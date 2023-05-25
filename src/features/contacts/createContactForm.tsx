@@ -42,7 +42,7 @@ export default function CreateContactForm() {
       toast.success("Contact saved");
       setTimeout(() => {
         navigate(-1)
-      }, 500);
+      }, 5);
     }
   }
 

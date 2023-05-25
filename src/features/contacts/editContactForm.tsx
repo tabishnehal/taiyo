@@ -13,7 +13,7 @@ export default function EditContactForm() {
 
   const { contactId } = useParams();
 
-  const contact = useSelector((state: any) => selectContactById(state, contactId));
+  const contact = useSelector((state: any) => selectContactById(state, contactId)) || { firstName: "", lastName: "", isActive: "" };
 
   const [firstName, setFirstName] = useState(contact.firstName);
   const [lastName, setLastName] = useState(contact.lastName);
@@ -40,8 +40,23 @@ export default function EditContactForm() {
       setTimeout(() => {
         navigate(`edit/${contactId}`, { replace: true });
         navigate(`contacts/view/${contactId}`);
-      }, 500);
+      }, 5);
     }
+    else {
+      toast.warning("Please provide non-empty input");
+    }
+  }
+
+  const contacts = () => {
+    navigate(`edit/${contactId}`, { replace: true });
+    navigate(`contacts/`);
+  }
+
+  if (isActive === "") {
+    return <div className="card">
+      <p>Contact does not exist! It might have been deleted</p>
+      Go to<button className="btn btn-green m-2" onClick={contacts}>Contact List</button>
+    </div>
   }
 
   return (

@@ -8,8 +8,6 @@ import ReactDOM from 'react-dom/client';
 import {
   RouterProvider,
 } from 'react-router-dom';
-// redux-persist
-import { PersistGate } from 'redux-persist/integration/react';
 // react-custom-alert
 import 'react-custom-alert/dist/index.css';
 // tanstack
@@ -19,7 +17,7 @@ import {
 } from '@tanstack/react-query';
 // App files
 import './style/main.css';
-import { persistor, store } from './app/store';
+import { store } from './app/store';
 import { router } from './features/routes/route';
 // reportWebVitals
 import reportWebVitals from './reportWebVitals';
@@ -32,11 +30,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
-      </PersistGate>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>
 );
