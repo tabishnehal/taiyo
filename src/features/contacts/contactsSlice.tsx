@@ -1,10 +1,12 @@
 // reduxjs/toolkit
 import { createSlice } from '@reduxjs/toolkit'
 
+// inittialstate
 const initialState = {
   contacts: [],
 }
 
+// contactslice
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
@@ -36,7 +38,9 @@ export const { contactAdded, contactEdited, contactDeleted } = contactsSlice.act
 
 export default contactsSlice.reducer;
 
+// allcontacts
 export const selectAllContacts = (state: any) => state.contacts;
 
+// contactbyid
 export const selectContactById = (state: any, contactId: any) =>
   state.contacts.find((contact: any) => contact.id === contactId);

@@ -1,6 +1,10 @@
+// react
 import React from "react";
+
+// react-icons
 import { FaSpinner } from "react-icons/fa";
 
+// Loader component
 export const Loader = ({ message }: any) => {
   return (
     <div className="flex h-screen">

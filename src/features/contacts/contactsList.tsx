@@ -1,15 +1,20 @@
 // react
-import React from 'react'
+import React from 'react';
+
 // react-redux
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+
 // react-router-dom
-import { Link } from 'react-router-dom'
-// feature file
+import { Link } from 'react-router-dom';
+
+// app file
 import { selectAllContacts } from './contactsSlice';
 
-export default function ContactsList() {
+// contactslist component
+const ContactsList = () => {
 
-  const contacts = useSelector(selectAllContacts)
+  // access redux store to get all contacts
+  const contacts = useSelector(selectAllContacts);
 
   return (
     <div className='flex flex-col justify-center'>
@@ -35,3 +40,5 @@ export default function ContactsList() {
     </div>
   )
 }
+
+export default ContactsList;

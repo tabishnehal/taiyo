@@ -1,31 +1,43 @@
 // react
 import React, { useState } from "react";
+
 // react-redux
 import { useDispatch, useSelector } from "react-redux";
+
 // react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
+
 // react-toastify
 import { toast } from "react-toastify";
+
 // feature file
 import { contactEdited, selectContactById } from "./contactsSlice";
 
-export default function EditContactForm() {
+// EditContactForm component
+const EditContactForm = () => {
 
+  // get contactid from useparams
   const { contactId } = useParams();
 
+  // access redux store to get contact having id as contactId
   const contact = useSelector((state: any) => selectContactById(state, contactId)) || { firstName: "", lastName: "", isActive: "" };
 
+  // properties of contact
   const [firstName, setFirstName] = useState(contact.firstName);
   const [lastName, setLastName] = useState(contact.lastName);
   const [isActive, setIsActive] = useState(contact.isActive);
 
+  // usedispatch api to dispatch action
   const dispatch = useDispatch();
+
+  // useNavigate api to navigate
   const navigate = useNavigate();
 
   const onFirstNameChanged = (e: any) => setFirstName(e.target.value);
   const onLastNameChanged = (e: any) => setLastName(e.target.value);
   const onIsActiveChanged = (e: any) => setIsActive(e.target.value);
 
+  // handle update contact
   const onEditContactClicked = () => {
     if (firstName !== "" && lastName !== "" && isActive !== "") {
       dispatch(
@@ -47,11 +59,13 @@ export default function EditContactForm() {
     }
   }
 
+  // navigate to contacts
   const contacts = () => {
     navigate(`edit/${contactId}`, { replace: true });
     navigate(`contacts/`);
   }
 
+  // no contact
   if (isActive === "") {
     return <div className="card">
       <p>Contact does not exist! It might have been deleted</p>
@@ -87,3 +101,5 @@ export default function EditContactForm() {
     </div>
   );
 }
+
+export default EditContactForm;

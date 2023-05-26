@@ -1,7 +1,9 @@
 // react
 import React from "react";
+
 // react-router-dom
 import { createHashRouter } from "react-router-dom";
+
 // App files
 import App from "../../App";
 import ErrorPage from "../../error-page";
@@ -12,6 +14,7 @@ import DeleteContactForm from "../contacts/deleteContactForm";
 import EditContactForm from "../contacts/editContactForm";
 import ViewContact from "../contacts/viewContact";
 
+// router
 export const router = createHashRouter([
   {
     path: "/",

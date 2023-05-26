@@ -1,26 +1,33 @@
 // react
 import React, { useState } from "react";
+
 // leaflet
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 import 'leaflet/dist/leaflet.css';
-// react-icon
+
 // react-query
 import { useQuery } from "@tanstack/react-query";
+
 // asset/image
 import covidIconUrl from '../../../assets/images/covid19.svg';
+
+// app files
 import { Loader } from "../../../utils/loader";
 import { DataError } from "../../../utils/error";
 
+// icon
 const covidIcon = new Icon({
   iconUrl: covidIconUrl,
   iconSize: [15, 15]
 });
 
+// map component
 const Map = () => {
 
   const [countryData, setCountryData] = useState(null);
 
+  // fetching data
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ['covidData'],
     queryFn: async () =>
@@ -29,11 +36,11 @@ const Map = () => {
       ).json()
   });
 
-  if (isLoading) {
-    return <Loader message="Loading World Map..." />
-  }
-  if (isError)
-    return <DataError error={error} />
+  // loading
+  if (isLoading) return <Loader message="Loading World Map..." />
+
+  // error
+  if (isError) return <DataError error={error} />
 
   return (
     <div className="mb-4">
@@ -55,9 +62,9 @@ const Map = () => {
                   {(countryData as any).country}
                   <img src={`${(countryData as any).countryInfo.flag}`} style={{ height: '30px', width: '35px', objectFit: 'contain' }} alt='flag' /></h1>
                 <p>Total cases:  {(countryData as any).cases}</p>
-                <p>Active:  {(countryData as any).active}</p>
-                <p>Recovered:  {(countryData as any).recovered}</p>
-                <p>Deaths:  {(countryData as any).deaths}</p>
+                <p className="text-red-500">Active:  {(countryData as any).active}</p>
+                <p className="text-green-500">Recovered:  {(countryData as any).recovered}</p>
+                <p className="text-red-700">Deaths:  {(countryData as any).deaths}</p>
               </div>
 
             </Popup>

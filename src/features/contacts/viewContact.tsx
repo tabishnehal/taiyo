@@ -1,33 +1,45 @@
 // react
 import React from "react";
+
 // react-redux
 import { useSelector } from "react-redux";
+
 // react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
+
 // feature file
 import { selectContactById } from "./contactsSlice";
 
-export default function ViewContact() {
+// ViewContact component
+const ViewContact = () => {
 
+  // get contactid from useparams
   const { contactId } = useParams();
+
   let contactExist = true;
 
+  // access redux store to get contact having id as contactId
   const contact = useSelector((state: any) => selectContactById(state, contactId)) || { id: contactId, firstName: "", lastName: "", isActive: "" };
 
+  // no contact
   if (contact.firstName === "") contactExist = false;
 
+  // useNavigate api to navigate
   const navigate = useNavigate();
 
+  // navigate to edit
   const edit = () => {
     navigate(`view/${contactId}`, { replace: true });
     navigate(`contacts/edit/${contactId}`);
   }
 
+  // naviagte to delete
   const delet = () => {
     navigate(`view/${contactId}`, { replace: true });
     navigate(`contacts/delete/${contactId}`);
   }
 
+  // naviagte to contacts
   const contacts = () => {
     navigate(`view/${contactId}`, { replace: true });
     navigate(`contacts/`);
@@ -57,3 +69,5 @@ export default function ViewContact() {
     </div>
   );
 }
+
+export default ViewContact;

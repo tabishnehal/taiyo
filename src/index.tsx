@@ -1,26 +1,33 @@
 // react
 import React from 'react';
+
 // react-redux
 import { Provider } from 'react-redux';
+
 // react-dom
 import ReactDOM from 'react-dom/client';
+
 // react-router-dom
 import {
   RouterProvider,
 } from 'react-router-dom';
+
 // tanstack
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+
 // App files
 import './style/main.css';
 import { store } from './app/store';
 import { router } from './features/routes/route';
-// reportWebVitals
-import reportWebVitals from './reportWebVitals';
 import { Loader } from './utils/loader';
 
+// reportWebVitals
+import reportWebVitals from './reportWebVitals';
+
+// queryClient
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(

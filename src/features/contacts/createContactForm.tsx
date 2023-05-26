@@ -1,30 +1,40 @@
 // react
 import React, { useState } from "react";
+
 // react-redux
 import { useDispatch } from "react-redux";
+
 // reduxjs/toolkit
 import { nanoid } from "@reduxjs/toolkit";
+
 // react-router-dom
 import { useNavigate } from "react-router-dom";
+
 // react-toastify
 import { toast } from 'react-toastify';
-// feature file
+
+// app file
 import { contactAdded } from "./contactsSlice";
 
-export default function CreateContactForm() {
+// createcontactform component
+const CreateContactForm = () => {
 
+  // properties of contact
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isActive, setIsActive] = useState("");
 
+  // usedispatch api to dispatch action
   const dispatch = useDispatch();
 
   const onFirstNameChanged = (e: any) => setFirstName(e.target.value);
   const onLastNameChanged = (e: any) => setLastName(e.target.value);
   const onIsActiveChanged = (e: any) => setIsActive(e.target.value);
 
+  // useNavigate api to navigate
   let navigate = useNavigate();
 
+  // handle save contact
   const onSaveContactClicked = () => {
     if (firstName !== "" && lastName !== "" && isActive !== "") {
       dispatch(
@@ -74,3 +84,5 @@ export default function CreateContactForm() {
     </div>
   );
 }
+
+export default CreateContactForm;

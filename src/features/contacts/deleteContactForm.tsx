@@ -1,25 +1,36 @@
 // react
 import React from "react";
+
 // react-redux
 import { useDispatch, useSelector } from "react-redux";
+
 // react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
+
 // react-toastify
 import { toast } from "react-toastify";
+
 // feature file
 import { contactDeleted, selectContactById } from "./contactsSlice";
 
-export default function DeleteContactForm() {
+// deletecontactform component
+const DeleteContactForm = () => {
 
+  // get contactid from useparams
   const { contactId } = useParams();
 
+  // access redux store to get contact having id as contactId
   const contact = useSelector((state: any) => selectContactById(state, contactId)) || { firstName: "" };
 
   const { firstName } = contact;
 
+  // usedispatch api to dispatch action
   const dispatch = useDispatch();
+
+  // useNavigate api to navigate
   const navigate = useNavigate();
 
+  // handle yes delete
   const onYesClicked = () => {
     if (firstName !== "") {
       dispatch(
@@ -36,6 +47,7 @@ export default function DeleteContactForm() {
     }
   }
 
+  // handle no delete
   const onNoClicked = () => {
     toast.info("Contact not deleted");
     setTimeout(() => {
@@ -44,11 +56,13 @@ export default function DeleteContactForm() {
     }, 5);
   }
 
+  // navigate to contacts
   const contacts = () => {
     navigate(`delete/${contactId}`, { replace: true });
     navigate(`contacts/`);
   }
 
+  // no contact
   if (firstName === "") {
     return <div className="card">
       <p>Contact does not exist! It might have been deleted</p>
@@ -72,3 +86,5 @@ export default function DeleteContactForm() {
     </div>
   );
 }
+
+export default DeleteContactForm;

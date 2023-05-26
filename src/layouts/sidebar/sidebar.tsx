@@ -1,16 +1,22 @@
 // react
 import React, { useEffect, useState } from "react";
+
 // react-router-dom
 import { NavLink, useLocation } from "react-router-dom";
+
 // framer-motion
 import { motion } from "framer-motion";
+
+// react-responsive
+import { useMediaQuery } from "react-responsive";
+
 // React icons
 import { IoIosArrowBack } from "react-icons/io";
 import { AiFillContacts, AiOutlineLineChart } from "react-icons/ai";
-import { useMediaQuery } from "react-responsive";
 import { MdMenu } from "react-icons/md";
 
-export default function Sidebar() {
+// Sidebar component
+const Sidebar = () => {
 
   let isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
   const [open, setOpen] = useState(isTabletMid ? false : true);
@@ -123,3 +129,5 @@ export default function Sidebar() {
     </div>
   );
 }
+
+export default Sidebar;

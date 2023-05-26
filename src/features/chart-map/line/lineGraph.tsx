@@ -1,15 +1,20 @@
 // react
 import React from "react";
+
 // numeral
 import numeral from "numeral";
+
 // react-chartjs
 import { Line } from "react-chartjs-2";
+
 // react-query
 import { useQuery } from "@tanstack/react-query";
+
 // react-icons
 import { Loader } from "../../../utils/loader";
 import { DataError } from "../../../utils/error";
 
+// options
 const options = {
   plugins: {
     legend: {
@@ -57,6 +62,7 @@ const options = {
   },
 };
 
+// build line chart data for case type
 const buildChartData = (data: any) => {
   let chartData = [];
   let lastDataPoint;
@@ -73,19 +79,22 @@ const buildChartData = (data: any) => {
   return chartData;
 }
 
-export function LineGraph({ casesType, casesTypeData }: { casesType: string, casesTypeData: any }) {
+// linegraph component
+export const LineGraph = ({ casesType, casesTypeData }: any) => {
 
+  // fetch the data
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ['covidDailyData', casesType],
     queryFn: async () => buildChartData(casesTypeData)
   });
 
+  // loading
   if (isLoading) {
     return <Loader message={`Loading ${casesType.charAt(0).toUpperCase() + casesType.slice(1)} Chart...`} />
   }
 
-  if (isError)
-    return <DataError error={error} />
+  // error
+  if (isError) return <DataError error={error} />
 
   return (
     <div className="cardLine md:flex md:flex-col">
