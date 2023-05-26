@@ -29,10 +29,12 @@ const Map = () => {
   });
 
   if (isLoading) {
-    return <div>
-      <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
-      <p className="text-center">Loading World Map...</p>
-    </div>
+    setTimeout(() => {
+      return <div>
+        <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
+        <p className="text-center">Loading World Map...</p>
+      </div>
+    }, 1000);
   }
   if (isError)
     return <span className='text-red'>{(error as any).message ? (error as any).message : error}</span>
