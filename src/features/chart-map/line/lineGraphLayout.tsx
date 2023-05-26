@@ -1,11 +1,12 @@
 // react
 import React, { useState } from "react";
 // react-icons
-import { FaSpinner } from "react-icons/fa";
 // react-query
 import { useQuery } from "@tanstack/react-query";
 // feature file
 import { LineGraph } from "./lineGraph";
+import { Loader } from "../../../utils/loader";
+import { DataError } from "../../../utils/error";
 
 const LineGraphLayout = () => {
 
@@ -18,13 +19,10 @@ const LineGraphLayout = () => {
   });
 
   if (isLoading) {
-    return <div>
-      <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
-      <p className="text-center">Loading Graph Layout...</p>
-    </div>
+    return <Loader message="Loading Graph Layout..." />
   }
   if (isError)
-    return <span className='text-red-400'>{(error as any).message ? (error as any).message : error}</span>
+    return <DataError error={error} />
 
   return (
     <>

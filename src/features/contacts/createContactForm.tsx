@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 // react-router-dom
 import { useNavigate } from "react-router-dom";
-// react-custom-alert
-import { toast } from 'react-custom-alert';
+// react-toastify
+import { toast } from 'react-toastify';
 // feature file
 import { contactAdded } from "./contactsSlice";
 

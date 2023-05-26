@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
-// react-custom-alert
-import { toast } from "react-custom-alert";
+// react-toastify
+import { toast } from "react-toastify";
 // feature file
 import { contactEdited, selectContactById } from "./contactsSlice";
 
@@ -36,7 +36,7 @@ export default function EditContactForm() {
           isActive
         })
       );
-      toast.success("Contact edited");
+      toast.success("Contact Updated");
       setTimeout(() => {
         navigate(`edit/${contactId}`, { replace: true });
         navigate(`contacts/view/${contactId}`);
@@ -80,7 +80,7 @@ export default function EditContactForm() {
               <input type="radio" id="inactive" name="isActive" value="No" onChange={onIsActiveChanged} checked={isActive === "No" ? true : false} />
               <label htmlFor="inactive"> Inactive</label><br></br>
             </div>
-            <button type="button" className="btn btn-green" onClick={onEditContactClicked}>Edit Contact</button>
+            <button type="button" className="btn btn-green" onClick={onEditContactClicked}>Update Contact</button>
           </div>
         </form>
       </div>

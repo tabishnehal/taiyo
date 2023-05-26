@@ -510,6 +510,10 @@ video {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -527,6 +531,9 @@ video {
 }
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mr-6 {
+  margin-right: 1.5rem;
 }
 .block {
   display: block;
@@ -601,6 +608,9 @@ video {
 }
 .flex-col {
   flex-direction: column;
+}
+.items-center {
+  align-items: center;
 }
 .justify-center {
   justify-content: center;

@@ -2,8 +2,9 @@
 import React from "react";
 // react-router-dom
 import { Outlet } from "react-router-dom";
-// react-custom-alert
-import { ToastContainer } from 'react-custom-alert';
+// react-toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // App files
 import Sidebar from "./sidebar/sidebar";
 
@@ -14,7 +15,7 @@ export default function RootLayout() {
       <main className="max-w-5xl flex-1 mx-auto py-4">
         <Outlet />
       </main>
-      <ToastContainer floatingTime={1000} />
+      <ToastContainer />
     </div>
   );
 }

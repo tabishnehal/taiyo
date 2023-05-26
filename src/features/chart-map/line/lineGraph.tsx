@@ -7,7 +7,8 @@ import { Line } from "react-chartjs-2";
 // react-query
 import { useQuery } from "@tanstack/react-query";
 // react-icons
-import { FaSpinner } from "react-icons/fa";
+import { Loader } from "../../../utils/loader";
+import { DataError } from "../../../utils/error";
 
 const options = {
   plugins: {
@@ -80,14 +81,11 @@ export function LineGraph({ casesType, casesTypeData }: { casesType: string, cas
   });
 
   if (isLoading) {
-    return <div>
-      <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
-      <p className="text-center">Loading {casesType.charAt(0).toUpperCase() + casesType.slice(1)} Chart...</p>
-    </div>
+    return <Loader message={`Loading ${casesType.charAt(0).toUpperCase() + casesType.slice(1)} Chart...`} />
   }
 
   if (isError)
-    return <span className='text-red-400 text-center'>{(error as any).message ? (error as any).message : error}</span>
+    return <DataError error={error} />
 
   return (
     <div className="cardLine md:flex md:flex-col">

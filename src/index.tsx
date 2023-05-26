@@ -8,8 +8,6 @@ import ReactDOM from 'react-dom/client';
 import {
   RouterProvider,
 } from 'react-router-dom';
-// react-custom-alert
-import 'react-custom-alert/dist/index.css';
 // tanstack
 import {
   QueryClient,
@@ -21,6 +19,7 @@ import { store } from './app/store';
 import { router } from './features/routes/route';
 // reportWebVitals
 import reportWebVitals from './reportWebVitals';
+import { Loader } from './utils/loader';
 
 const queryClient = new QueryClient();
 
@@ -31,7 +30,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <RouterProvider router={router} fallbackElement={<Loader message={`Loading...`} />} />
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>

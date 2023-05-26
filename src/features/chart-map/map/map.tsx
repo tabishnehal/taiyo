@@ -5,11 +5,12 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 import 'leaflet/dist/leaflet.css';
 // react-icon
-import { FaSpinner } from 'react-icons/fa';
 // react-query
 import { useQuery } from "@tanstack/react-query";
 // asset/image
 import covidIconUrl from '../../../assets/images/covid19.svg';
+import { Loader } from "../../../utils/loader";
+import { DataError } from "../../../utils/error";
 
 const covidIcon = new Icon({
   iconUrl: covidIconUrl,
@@ -29,15 +30,10 @@ const Map = () => {
   });
 
   if (isLoading) {
-    setTimeout(() => {
-      return <div>
-        <FaSpinner className="w-10 h-10 animate-spin mx-auto" />
-        <p className="text-center">Loading World Map...</p>
-      </div>
-    }, 1000);
+    return <Loader message="Loading World Map..." />
   }
   if (isError)
-    return <span className='text-red'>{(error as any).message ? (error as any).message : error}</span>
+    return <DataError error={error} />
 
   return (
     <div className="mb-4">

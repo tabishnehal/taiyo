@@ -4,8 +4,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 // react-router-dom
 import { useNavigate, useParams } from "react-router-dom";
-// react-custom-alert
-import { toast } from "react-custom-alert";
+// react-toastify
+import { toast } from "react-toastify";
 // feature file
 import { contactDeleted, selectContactById } from "./contactsSlice";
 
