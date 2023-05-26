@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/taiyo/static/css/main.60489289.css",
-    "main.js": "/taiyo/static/js/main.b02a6e04.js",
+    "main.js": "/taiyo/static/js/main.f93ba34f.js",
     "static/js/787.a9a1a97d.chunk.js": "/taiyo/static/js/787.a9a1a97d.chunk.js",
     "static/media/covid19.svg": "/taiyo/static/media/covid19.0ceb0aa4d865e33039c9899daaf8bbe0.svg",
     "index.html": "/taiyo/index.html",
     "main.60489289.css.map": "/taiyo/static/css/main.60489289.css.map",
-    "main.b02a6e04.js.map": "/taiyo/static/js/main.b02a6e04.js.map",
+    "main.f93ba34f.js.map": "/taiyo/static/js/main.f93ba34f.js.map",
     "787.a9a1a97d.chunk.js.map": "/taiyo/static/js/787.a9a1a97d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.60489289.css",
-    "static/js/main.b02a6e04.js"
+    "static/js/main.f93ba34f.js"
   ]
 }
